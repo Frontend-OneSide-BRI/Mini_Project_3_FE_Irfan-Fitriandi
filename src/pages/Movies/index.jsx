@@ -2,8 +2,12 @@ import Header from "src/components/molecules/Header";
 
 import Heroimg from "src/assets/bg-movies.jpg";
 import SearchBox from "src/components/molecules/SearchBox";
+import ListCategory from "src/components/molecules/ListCategory";
+import { useState } from "react";
 
 const MoviesPage = () => {
+  const [category, setCategory] = useState(0);
+
   return (
     <>
       <Header />
@@ -23,30 +27,7 @@ const MoviesPage = () => {
         </h3>
         <SearchBox />
       </section>
-      <nav >
-        <ul className="flex justify-center items-center gap-2 md:gap-6">
-          <li
-            className={`text-lg font-bold border-b-4 px-[6px] border-grn whitespace-nowrap`}
-          >
-            Action
-          </li>
-          <li
-            className={`text-lg font-bold border-b-4 px-[6px] border-grn whitespace-nowrap`}
-          >
-            Adventure
-          </li>
-          <li
-            className={`text-lg font-bold border-b-4 px-[6px] border-grn whitespace-nowrap`}
-          >
-            Animation
-          </li>
-          <li
-            className={`text-lg font-bold border-b-4 px-[6px] border-grn whitespace-nowrap`}
-          >
-            Sci-Fi
-          </li>
-        </ul>
-      </nav>
+      <ListCategory handleFilter={setCategory} />
     </>
   );
 };
