@@ -9,13 +9,10 @@ import Heroimg from "src/assets/bg-home.jpg";
 const Hero = () => {
   return (
     <section
-      id="hero"
+      id="hero-home"
       className="h-screen w-full flex flex-col justify-center items-center"
       style={{
-        backgroundImage: `linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.5)
-    ), url(${Heroimg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(${Heroimg})`,
         backgroundRepeat: `no-repeat`,
         backgroundSize: `cover`,
         backgroundPosition: `center`,
