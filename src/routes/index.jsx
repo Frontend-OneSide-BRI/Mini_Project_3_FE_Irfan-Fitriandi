@@ -1,7 +1,15 @@
-import React from "react";
+import { Suspense } from "react";
+import { RouterProvider } from "react-router-dom";
+
+import routes from "./routes";
+import Loading from "src/components/atoms/Loading";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <Suspense fallback={<Loading />}>
+      <RouterProvider router={routes} />
+    </Suspense>
+  );
 };
 
 export default App;
