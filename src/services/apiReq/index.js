@@ -7,10 +7,38 @@ export const movieApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.themoviedb.org/3/" }),
   endpoints: (builder) => ({
     getMovieByName: builder.query({
-      query: (query, page = 1) =>
-        `search/movie?api_key=${API_KEY}&query=${query}&include_adult=false&language=en-US&page=${page}`,
+      query: (query) =>
+        `search/movie?api_key=${API_KEY}&query=${query}&include_adult=false&language=en-US&page=1`,
+    }),
+    getMovieByGenre: builder.query({
+      query: (args) => {
+        const { genres, pages } = args;
+        return {
+          url: `discover/movie?api_key=${API_KEY}&with_genres=${genres}&page=${pages}`,
+        };
+      },
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems) => {
+        if (newItems.page === 1) {
+          currentCache.results.splice(...newItems.results);
+        }
+        currentCache.results.push(...newItems.results);
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      },
+    }),
+    getMovieByNowPlaying: builder.query({
+      query: (page = 1) =>
+        `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`,
     }),
   }),
 });
 
-export const { useGetMovieByNameQuery } = movieApi;
+export const {
+  useGetMovieByNameQuery,
+  useGetMovieByGenreQuery,
+  useGetMovieByNowPlayingQuery,
+} = movieApi;
