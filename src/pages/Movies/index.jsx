@@ -27,7 +27,7 @@ const MoviesPage = () => {
         </h3>
         <SearchBox />
       </section>
-      <ListCategory handleFilter={setCategory} />
+      <ListCategory handleFilter={setCategory} isActive={category} />
     </>
   );
 };
