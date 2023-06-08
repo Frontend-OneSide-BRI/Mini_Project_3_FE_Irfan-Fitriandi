@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
+
+import { useGetDetailMovieQuery } from "src/services/apiReq";
+
 import Button from "src/components/atoms/Button";
 import Loading from "src/components/atoms/Loading";
 import Footer from "src/components/molecules/Footer";
 import Header from "src/components/molecules/Header";
-import { useGetDetailMovieQuery } from "src/services/apiReq";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -17,7 +20,6 @@ const MovieDetailPage = () => {
     return alert(error.message);
   }
 
-  console.log(data);
   return (
     <>
       <Header />
@@ -43,15 +45,21 @@ const MovieDetailPage = () => {
                 {data.title}
               </h1>
               <div className="flex items-center gap-2 text-xs">
-                {data.release_date} &#8226;
                 <span className="outline outline-1 p-[1px] text-[0.7rem]">
                   {data.production_companies[0].origin_country}
-                </span>{" "}
-                &#8226; {data.runtime} minutes
+                </span>
+                &#8226; {data.release_date} &#8226; {data.runtime} minutes
               </div>
             </div>
             <p>{data.overview}</p>
-            <Button classname={`bg-pink-500 hover:bg-pink-800`} label={`jasdads`} />
+            <Button
+              classname={`bg-red-600 hover:bg-red-800`}
+              label={
+                <div className="flex items-center gap-2">
+                  + To Fav <FaHeart />
+                </div>
+              }
+            />
           </div>
         </div>
         <div className="italic md:text-lg text-slate-300 font-medium text-center w-full">
