@@ -5,7 +5,6 @@ const HomePage = lazy(() => import("src/pages/Home"));
 const MoviesPage = lazy(() => import("src/pages/Movies"));
 const MovieDetailPage = lazy(() => import("src/pages/MovieDetail"));
 const FavoritesPage = lazy(() => import("src/pages/Favorites"));
-const LoginPage = lazy(() => import("src/pages/Login"));
 
 const routes = createBrowserRouter([
   {
@@ -31,10 +30,6 @@ const routes = createBrowserRouter([
   {
     path: "/favorites",
     element: <FavoritesPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
   },
 ]);
 
