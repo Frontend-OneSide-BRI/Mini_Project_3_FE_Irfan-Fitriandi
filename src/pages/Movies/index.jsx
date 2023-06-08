@@ -1,18 +1,15 @@
-import { useState } from "react";
-import Header from "src/components/molecules/Header";
-
-import ListCategory from "src/components/molecules/ListCategory";
-import Loading from "src/components/atoms/Loading";
 import SearchHero from "./SearchHero";
+import Header from "src/components/molecules/Header";
+import Footer from "src/components/molecules/Footer";
+import MovieListbyGenre from "./MovieListbyGenre";
 
 const MoviesPage = () => {
-  const [category, setCategory] = useState(0);
-
   return (
     <>
       <Header />
       <SearchHero />
-      <ListCategory handleFilter={setCategory} isActive={category} />
+      <MovieListbyGenre />
+      <Footer />
     </>
   );
 };
