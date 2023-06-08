@@ -9,7 +9,7 @@ const Card = ({ title, overview, date, poster, id_movie }) => {
     >
       <img
         alt={title}
-        src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${poster}`}
+        src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${poster}`}
         className="absolute inset-0 max-h-full w-full object-cover opacity-80 transition-all group-hover:opacity-30 rounded-md"
       />
       <div className="relative p-[5%] rounded-md flex flex-col justify-between h-full">
