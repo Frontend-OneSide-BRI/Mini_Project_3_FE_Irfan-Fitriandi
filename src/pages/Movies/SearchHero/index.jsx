@@ -16,7 +16,7 @@ const SearchHero = () => {
   }
 
   if (isError) {
-    return alert(error.data.status_message)
+    return alert(error.message)
   }
 
   return (
