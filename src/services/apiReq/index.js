@@ -10,6 +10,9 @@ export const movieApi = createApi({
       query: (query) =>
         `search/movie?api_key=${API_KEY}&query=${query}&include_adult=false&language=en-US&page=1`,
     }),
+    getDetailMovie: builder.query({
+      query: (id) => `/movie/${id}?api_key=${API_KEY}`,
+    }),
     getMovieByGenre: builder.query({
       query: (args) => {
         const { genres, pages } = args;
@@ -39,6 +42,7 @@ export const movieApi = createApi({
 
 export const {
   useGetMovieByNameQuery,
+  useGetDetailMovieQuery,
   useGetMovieByGenreQuery,
   useGetMovieByNowPlayingQuery,
 } = movieApi;
