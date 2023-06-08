@@ -1,6 +1,6 @@
 import { categories } from "src/constants/ListCategories";
 
-const ListCategory = ({ handleFilter, isActive }) => {
+const ListGenre = ({ handleFilter, isActive }) => {
   return (
     <nav>
       <ul className="flex justify-center items-center gap-2 md:gap-6">
@@ -20,4 +20,4 @@ const ListCategory = ({ handleFilter, isActive }) => {
   );
 };
 
-export default ListCategory;
+export default ListGenre;
