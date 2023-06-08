@@ -37,6 +37,9 @@ export const movieApi = createApi({
       query: (page = 1) =>
         `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`,
     }),
+    getReqToken: builder.query({
+      query: () => `authentication/token/new?api_key=${API_KEY}`,
+    }),
   }),
 });
 
@@ -45,4 +48,5 @@ export const {
   useGetDetailMovieQuery,
   useGetMovieByGenreQuery,
   useGetMovieByNowPlayingQuery,
+  useGetReqTokenQuery,
 } = movieApi;
